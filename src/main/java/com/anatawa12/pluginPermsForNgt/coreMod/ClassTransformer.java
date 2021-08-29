@@ -41,6 +41,9 @@ public class ClassTransformer implements IClassTransformer {
                         ((MethodInsnNode) insn).owner = internalNameOfNGTPermissionManagerBukkit;
                     }
                 }
+            } else if ("<init>".equals(method.name)) {
+                method.access &= ~Opcodes.ACC_PRIVATE;
+                method.access |= Opcodes.ACC_PROTECTED;
             }
         }
 
