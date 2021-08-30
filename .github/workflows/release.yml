@@ -58,7 +58,6 @@ jobs:
         run: |
           VERSION="$(get-version)"
           gh release create "v$VERSION" \
-            --target "v$VERSION" \
             --notes-file "$RELEASE_NOTE"
           gh release upload "v$VERSION" \
             "build/libs/plugin-permissions-for-ngt-$VERSION.jar"
