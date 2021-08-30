@@ -1,3 +1,8 @@
+/*
+ * This file is a file to specify partial signature of NGTCore in `jp.ngt.ngtlib` package in NGTLib project.
+ * NGTLib is not open source project.
+ */
+
 package jp.ngt.ngtlib;
 
 import compat.Vendor;

@@ -1,3 +1,8 @@
+/*
+ * This file is a file to specify partial signature of NGTLog in `jp.ngt.ngtlib.io` package in NGTLib project.
+ * NGTLib is not open source project.
+ */
+
 package jp.ngt.ngtlib.io;
 
 import compat.Vendor;

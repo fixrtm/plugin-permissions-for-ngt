@@ -1,3 +1,12 @@
+/*
+ * This file is a file to specify partial signature of PermissionManager in `jp.ngt.ngtlib.util` package in NGTLib
+ * and modified by KaizPatchX project.
+ * NGTLib is not open source project.
+ * KaizPatchX is published under GNU GPL 3.0 with some exceptions.
+ * see https://github.com/Kai-Z-JP/KaizPatchX/blob/master/LICENCE.
+ * Original Source(patched): https://github.com/Kai-Z-JP/KaizPatchX/blob/master/src/main/java/jp/ngt/ngtlib/util/PermissionManager.java
+ */
+
 package jp.ngt.ngtlib.util;
 
 import compat.Vendor;
