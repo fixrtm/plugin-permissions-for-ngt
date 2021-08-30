@@ -1,9 +1,12 @@
 package com.anatawa12.pluginPermsForNgt.coreMod;
 
 import net.minecraft.launchwrapper.IClassTransformer;
+import net.minecraftforge.common.MinecraftForge;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.commons.Remapper;
+import org.objectweb.asm.commons.RemappingClassAdapter;
 import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.InsnList;
@@ -19,6 +22,8 @@ public class ClassTransformer implements IClassTransformer {
             return transformNGTPermissionManager(basicClass);
         if ("com.anatawa12.fixRtm.PermissionManager".equals(name))
             return transformFixRTMPermissionManager(basicClass);
+        if ("com.anatawa12.pluginPermsForNgt.PluginPermsForNgtMain".equals(name))
+            return transformPluginPermsForNgtMain(basicClass);
         return basicClass;
     }
 
@@ -77,6 +82,35 @@ public class ClassTransformer implements IClassTransformer {
         return writer.toByteArray();
     }
 
+    private byte[] transformPluginPermsForNgtMain(byte[] basicClass) {
+        Remapper remapper = new Remapper() {
+            @Override
+            public String map(String typeName) {
+                if (typeName.startsWith("com/anatawa12/pluginPermsForNgt/fml/"))
+                    return FmlPackageNameFinder.fmlPackage + 
+                            typeName.substring("com/anatawa12/pluginPermsForNgt/fml/".length());
+                return super.map(typeName);
+            }
+        };
+
+        ClassWriter writer = new ClassWriter(0);
+        new ClassReader(basicClass).accept(new RemappingClassAdapter(writer, remapper), 0);
+        return writer.toByteArray();
+    }
+
     private static final String internalNameOfNGTPermissionManagerBukkit
             = "com/anatawa12/pluginPermsForNgt/NGTPermissionManagerBukkit";
+
+    private static class FmlPackageNameFinder {
+        private static final String fmlPackage;
+        static {
+            if (Integer.parseInt(MinecraftForge.MC_VERSION.split("\\.")[1]) < 8) {
+                // cpw.mods.fml: until 1.7.*
+                fmlPackage = "cpw/mods/fml/";
+            } else {
+                // net.minecraftforge.fml: since 1.8.*
+                fmlPackage = "net/minecraftforge/fml/";
+            }
+        }
+    }
 }

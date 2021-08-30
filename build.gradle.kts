@@ -23,6 +23,7 @@ dependencies {
 
 tasks.jar {
     manifest.attributes("FMLCorePlugin" to "com.anatawa12.pluginPermsForNgt.coreMod.PluginPermsForNgtFMLLoadingPlugin")
+    manifest.attributes("FMLCorePluginContainsFMLMod" to "*")
 }
 
 

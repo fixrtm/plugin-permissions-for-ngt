@@ -40,8 +40,18 @@ public class NGTPermissionManagerBukkit extends PermissionManager implements IPe
     // KaizPatchX
     @Vendors(Vendor.KaizPatch)
     public void registerPermission(String per1) {
+        // can be crashed if org.bukkit.Bukkit.getServer() = null
+        if (org.bukkit.Bukkit.getServer() != null)
+            doRegisterPermission(per1);
+        else
+            permissionsToBeRegister.add(per1);
+    }
+
+    @Vendors(Vendor.PluginPermsForNgt)
+    private void doRegisterPermission(String per1) {
         DefaultPermissions.registerPermission(PERM_PREFIX + per1, 
                 "The permission of ngtlib permission " + per1);
+        PluginPermsForNgtMain.log("registerPermission: " + per1);
     }
 
     @Vendors({Vendor.NGT1710, Vendor.NGT1122})
@@ -77,6 +87,16 @@ public class NGTPermissionManagerBukkit extends PermissionManager implements IPe
         }
         return false;
     }
+
+    @Vendors(Vendor.PluginPermsForNgt)
+    @Override
+    public void onPostInit() {
+        for (String permission : permissionsToBeRegister) {
+            doRegisterPermission(permission);
+        }
+    }
+
+    private final java.util.Set<String> permissionsToBeRegister = new java.util.HashSet<>();
 
     private static final Method getBukkitEntity;
     public static Object getBukkitEntity(Entity e) {
