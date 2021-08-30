@@ -16,7 +16,7 @@ plugins {
     id("com.anatawa12.compile-time-constant") version "1.0.5"
 }
 
-group = "com.anatawa12.plugin-permissions-for-ngt"
+group = "com.anatawa12.fixRtm.plugin-permissions-for-ngt"
 version = property("version").toString()
 
 val api by sourceSets.creating
