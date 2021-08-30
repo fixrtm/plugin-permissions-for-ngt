@@ -54,6 +54,7 @@ open class RunServer : JavaExec() {
         classpath(runDir.resolve(serverFile.get().asFile.name))
         runDir.resolve("eula.txt").writeText("eula=true\n")
 
+        standardInput = System.`in`
         super.exec()
     }
 
