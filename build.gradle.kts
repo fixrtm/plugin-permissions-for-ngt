@@ -4,10 +4,11 @@ import java.net.URI
 plugins {
     java
     `plugin-perms-for-ngt-build`
+    id("com.anatawa12.compile-time-constant") version "1.0.5"
 }
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+group = "com.anatawa12.plugin-permissions-for-ngt"
+version = property("version").toString()
 
 val api by sourceSets.creating
 
@@ -26,6 +27,10 @@ tasks.jar {
     manifest.attributes("FMLCorePluginContainsFMLMod" to "*")
 }
 
+tasks.createCompileTimeConstant {
+    constantsClass = "com.anatawa12.pluginPermsForNgt.Constants"
+    values(mapOf("VERSION" to version.toString()))
+}
 
 val fixRTMId = 365235
 val rtmId = 288988
