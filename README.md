@@ -7,7 +7,17 @@ which is released under GNU GPL v3.
 See LICENSE at https://github.com/anatawa12/plugin-permissions-for-ngt.
 -->
 
-# Plugin permissions for NGT permissions
+Plugin permissions for NGT permissions
+====
+
+<small>A project of [fixRTM](https://github.com/fixrtm) </small>
+
+[![Discord](https://img.shields.io/discord/749186892733480970.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/qFKcUXX)
+[![Github Actions](https://img.shields.io/github/workflow/status/fixrtm/plugin-permissions-for-ngt/Java%20CI%20with%20Gradle/master?logo=github)](https://github.com/fixrtm/plugin-permissions-for-ngt/actions)
+[![Github Release](https://img.shields.io/github/v/release/fixrtm/plugin-permissions-for-ngt?logo=github)](https://github.com/fixrtm/plugin-permissions-for-ngt/releases/latest)
+<!--
+[![Curse Download](https://img.shields.io/badge/CurseForge-download-brightgreen?logo=curseforge)](https://www.curseforge.com/minecraft/mc-mods/fixrtm)
+-->
 
 The mod to use permissions of plugins as NGTLib's permissions.
 
