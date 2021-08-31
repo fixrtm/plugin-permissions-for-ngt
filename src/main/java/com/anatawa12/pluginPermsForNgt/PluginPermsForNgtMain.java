@@ -17,8 +17,8 @@ import static com.anatawa12.pluginPermsForNgt.PluginPermsForNgtMain.MODID;
 import static com.anatawa12.pluginPermsForNgt.PluginPermsForNgtMain.NAME;
 import static com.anatawa12.pluginPermsForNgt.PluginPermsForNgtMain.VERSION;
 
-@net.minecraftforge.fml.common.Mod(modid = MODID, name = NAME, version = VERSION)
-@cpw.mods.fml.common.Mod(modid = MODID, name = NAME, version = VERSION)
+@net.minecraftforge.fml.common.Mod(modid = MODID, name = NAME, version = VERSION, acceptableRemoteVersions = "*")
+@cpw.mods.fml.common.Mod(modid = MODID, name = NAME, version = VERSION, acceptableRemoteVersions = "*")
 public class PluginPermsForNgtMain {
     public static final String MODID = "plugin-permissions-for-ngt";
     public static final String NAME = "plugin permissions for ngt";
