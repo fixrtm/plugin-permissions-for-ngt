@@ -19,7 +19,7 @@ Plugin permissions for NGT permissions
 [![Curse Download](https://img.shields.io/badge/CurseForge-download-brightgreen?logo=curseforge)](https://www.curseforge.com/minecraft/mc-mods/fixrtm)
 -->
 
-The mod to use permissions of plugins as NGTLib's permissions.
+The server-side only mod to use permissions of plugins as NGTLib's permissions.
 
 ## System requirements
 
@@ -38,6 +38,9 @@ The mod to use permissions of plugins as NGTLib's permissions.
   formerly known as Cauldron/[KCauldron]/[Thermos], like [Mohist].
 
   This mod is tested with [Mohist] version 1.7.10 build 40 and version 1.12.2 build 248.
+
+This mod is server-side only mod so you don't need to install on client side and 
+on client side, this mod will not work because this is depending on bukkit.
 
 [Bukkit]: https://bukkit.org/
 [Spigot]: https://www.spigotmc.org/
