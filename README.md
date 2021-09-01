@@ -57,3 +57,14 @@ The mod to use permissions of plugins as NGTLib's permissions.
 3. Then please start minecraft server.
 
 [latest version tag page]: https://github.com/anatawa12/plugin-permissions-for-ngt/releases/latest
+
+## How to grant permission
+
+This plugin registers and checks ngt's permissions to plugin permission with appending `ngt-permissions.` as prefix.
+So, to grant `editRail`, please grant `ngt-permissions.editRail` in plugin permissions.
+
+In this plugin, `negative.` permissions and `fixrtm.all_permit` added by [KaizPatchX] and [fixRTM] will not work.
+Please use deny permissions and generic permission by permission management plugin.
+
+[KaizPatchX]: https://github.com/Kai-Z-JP/KaizPatchX
+[fixRTM]: https://www.curseforge.com/minecraft/mc-mods/fixrtm
