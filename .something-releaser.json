@@ -1,0 +1,7 @@
+{
+  "changelog": {
+    "commitLimit": 0,
+    "sortTags": "-committerdate",
+    "dateForUnreleased": true
+  }
+}
