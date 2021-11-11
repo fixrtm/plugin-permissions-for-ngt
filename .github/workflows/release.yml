@@ -37,7 +37,7 @@ jobs:
           # create changelog for this release
           RELEASE_NOTE="$(mktemp)"
           echo "::set-output name=RELEASE_NOTE::$RELEASE_NOTE"
-          generate-changelog -v "$VERSION" --unreleased-only >> "$RELEASE_NOTE"
+          generate-changelog -v "$VERSION" --unreleased-only --stdout >> "$RELEASE_NOTE"
           # update versions in readme and example
           perl -pi \
             -e 's/(?<=\Q("com.anatawa12.compile-time-constant") version \E)".*"/"'$VERSION'"/' \
