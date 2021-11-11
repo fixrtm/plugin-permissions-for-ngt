@@ -58,6 +58,10 @@ public class NGTPermissionManagerBukkit extends PermissionManager implements IPe
 
     @Vendors(Vendor.PluginPermsForNgt)
     private void doRegisterPermission(String per1) {
+        if (per1.equals("fixrtm.all_permit") || per1.startsWith("negative.")) {
+            PluginPermsForNgtMain.log("ignored registerPermission: " + per1);
+            return;
+        }
         DefaultPermissions.registerPermission(PERM_PREFIX + per1, 
                 "The permission of ngtlib permission " + per1);
         PluginPermsForNgtMain.log("registerPermission: " + per1);
