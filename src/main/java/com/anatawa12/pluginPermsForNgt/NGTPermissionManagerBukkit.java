@@ -95,6 +95,7 @@ public class NGTPermissionManagerBukkit extends PermissionManager implements IPe
         return true;
     }
 
+    @Vendors(Vendor.PluginPermsForNgt)
     private boolean hasPermissionInternal(ICommandSender player, String category) {
         if (player instanceof Entity) {
             Object bukkitEntity = getBukkitEntity((Entity) player);
