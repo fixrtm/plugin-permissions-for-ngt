@@ -88,6 +88,14 @@ public class NGTPermissionManagerBukkit extends PermissionManager implements IPe
 
     @Vendors({Vendor.NGT1710, Vendor.NGT1122})
     public boolean hasPermission(ICommandSender player, String category) {
+        if (!hasPermissionInternal(player, category)) {
+            return false;
+        }
+        NGTLog.sendChatMessage(player, "You don't have "  + PERM_PREFIX + category + " permission.");
+        return true;
+    }
+
+    private boolean hasPermissionInternal(ICommandSender player, String category) {
         if (player instanceof Entity) {
             Object bukkitEntity = getBukkitEntity((Entity) player);
             if (bukkitEntity instanceof Permissible) {
