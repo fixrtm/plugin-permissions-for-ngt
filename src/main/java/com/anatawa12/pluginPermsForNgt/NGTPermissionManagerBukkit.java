@@ -51,12 +51,14 @@ public class NGTPermissionManagerBukkit extends PermissionManager implements IPe
     @Vendors(Vendor.KaizPatch)
     @Override
     public Collection<String> getPlayerList0(String permission) {
+        PluginPermsForNgtMain.log("calling getPlayerList of KaizPatch by " + new Throwable().getStackTrace()[1]);
         // In the KaizPatch's implementation, returns set so use set here.
         return Collections.emptySet();
     }
 
     @Override
     public Set<String> getPlayerSet(String permission) {
+        PluginPermsForNgtMain.log("calling getPlayerList of fixRTM by " + new Throwable().getStackTrace()[1]);
         return Collections.emptySet();
     }
 
