@@ -46,33 +46,33 @@ val rtmId = 288988
 val ngtlibId = 288989
 
 // minecraft modifications
-// KaizPatchX: 1.3.0
+// KaizPatchX: 1.6.0
 val kaizPatch by pluginPermsForNgt.mods.creatingURI(URI("https://github.com/Kai-Z-JP/KaizPatchX/releases/download/" +
-        "v1.3.0/src1.7.10_20200822+KaizPatchX-1.3.0.jar"))
-// fixRTM: SNAPSHOT-2021-08-15-06-27-14.jar
-val fixRTM by pluginPermsForNgt.mods.creatingCurse(fixRTMId, 3425891)
+        "v1.6.0/src1.7.10_20200822+KaizPatchX-1.6.0.jar"))
+// fixRTM: 2.0.24-beta2
+val fixRTM by pluginPermsForNgt.mods.creatingCurse(fixRTMId, 4053423)
 
 // RTM: 1.7.10.41
 val rtm1710 by pluginPermsForNgt.mods.creatingCurse(rtmId, 3039063)
 // RTM: 2.4.22-40
 val rtm1122 by pluginPermsForNgt.mods.creatingCurse(rtmId, 3387261)
 
-// NGTLib: 1.7.10.32
-val ngtlib1710 by pluginPermsForNgt.mods.creatingCurse(ngtlibId, 2940833)
-// NGTLib: 2.4.19-35
-val ngtlib1122 by pluginPermsForNgt.mods.creatingCurse(ngtlibId, 3387256)
+// NGTLib: 1.7.10.44
+val ngtlib1710 by pluginPermsForNgt.mods.creatingCurse(ngtlibId, 4030455)
+// NGTLib: 2.4.23-42
+val ngtlib1122 by pluginPermsForNgt.mods.creatingCurse(ngtlibId, 3873403)
 
 // LuckPerms: v5.3.64
-val luckPermsBuildNumber = 1363
-val luckPermsVersion = "5.3.64"
+val luckPermsBuildNumber = 1460
+val luckPermsVersion = "5.4.52"
 val luckPerms1710 by pluginPermsForNgt.mods.creatingURI(URI("https://ci.lucko.me/job/LuckPerms/$luckPermsBuildNumber/artifact" +
         "/bukkit-legacy/loader/build/libs/LuckPerms-Bukkit-Legacy-$luckPermsVersion.jar"))
 val luckPerms1122 by pluginPermsForNgt.mods.creatingURI(URI("https://ci.lucko.me/job/LuckPerms/$luckPermsBuildNumber/artifact" +
         "/bukkit/loader/build/libs/LuckPerms-Bukkit-$luckPermsVersion.jar"))
 
 // servers
-val mohist1710 by pluginPermsForNgt.servers.creatingMohist("1.7.10", 40)
-val mohist1122 by pluginPermsForNgt.servers.creatingMohist("1.12.2", 248)
+val mohist1710 by pluginPermsForNgt.servers.creatingMohist("1.7.10", 46)
+val mohist1122 by pluginPermsForNgt.servers.creatingMohist("1.12.2", 321)
 
 // others
 val pluginPermsForNGT by pluginPermsForNgt.mods.creatingByArchiveTask(tasks.jar)
