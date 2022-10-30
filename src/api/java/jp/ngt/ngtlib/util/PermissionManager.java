@@ -14,7 +14,9 @@ import compat.Vendors;
 import net.minecraft.command.ICommandSender;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 // The file only for signatures
 @Vendors({Vendor.NGT1710, Vendor.NGT1122})
@@ -42,6 +44,22 @@ public class PermissionManager {
     // the function to get list of players the permission have
     @Vendors({Vendor.NGT1710, Vendor.NGT1122})
     public List<String> getPlayerList(String permission) {
+        throw new IllegalStateException();
+    }
+
+    // the function to get list of players the permission have
+    // in the kaizPatchX, this is named getPlayerList but due to signature conflict, renamed to 
+    // getPlayerList0 here. will be renamed in ClassTransformer for NGTPermissionManagerBukkit.
+    // see https://github.com/Kai-Z-JP/KaizPatchX/pull/312
+    @Vendors({Vendor.KaizPatch})
+    public Collection<String> getPlayerList0(String permission) {
+        throw new IllegalStateException();
+    }
+
+    // the function to get list of players the permission have
+    // see https://github.com/fixrtm/fixRTM/pull/550
+    @Vendors({Vendor.FixRTM})
+    public Set<String> getPlayerSet(String permission) {
         throw new IllegalStateException();
     }
 

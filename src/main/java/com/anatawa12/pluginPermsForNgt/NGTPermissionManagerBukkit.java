@@ -20,8 +20,10 @@ import org.bukkit.util.permissions.DefaultPermissions;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import static com.anatawa12.pluginPermsForNgt.PluginPermsForNgtMain.PERM_PREFIX;
 
@@ -44,6 +46,18 @@ public class NGTPermissionManagerBukkit extends PermissionManager implements IPe
     public List<String> getPlayerList(String par1) {
         PluginPermsForNgtMain.log("calling getPlayerList by " + new Throwable().getStackTrace()[1]);
         return Collections.emptyList();
+    }
+
+    @Vendors(Vendor.KaizPatch)
+    @Override
+    public Collection<String> getPlayerList0(String permission) {
+        // In the KaizPatch's implementation, returns set so use set here.
+        return Collections.emptySet();
+    }
+
+    @Override
+    public Set<String> getPlayerSet(String permission) {
+        return Collections.emptySet();
     }
 
     // KaizPatchX

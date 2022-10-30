@@ -33,6 +33,8 @@ public class ClassTransformer implements IClassTransformer {
             return transformFixRTMPermissionManager(basicClass);
         if ("com.anatawa12.pluginPermsForNgt.PluginPermsForNgtMain".equals(name))
             return transformPluginPermsForNgtMain(basicClass);
+        if (nameOfNGTPermissionManagerBukkit.equals(name))
+            return transformNGTPermissionManagerBukkit(basicClass);
         return basicClass;
     }
 
@@ -58,6 +60,23 @@ public class ClassTransformer implements IClassTransformer {
             } else if ("<init>".equals(method.name)) {
                 method.access &= ~Opcodes.ACC_PRIVATE;
                 method.access |= Opcodes.ACC_PROTECTED;
+            }
+        }
+
+        ClassWriter writer = new ClassWriter(0);
+        node.accept(writer);
+        return writer.toByteArray();
+    }
+
+    private byte[] transformNGTPermissionManagerBukkit(byte[] basicClass) {
+        ClassNode node = new ClassNode();
+        new ClassReader(basicClass).accept(node, 0);
+
+        // remove final flag
+        node.access = node.access & ~Opcodes.ACC_FINAL;
+        for (MethodNode method : node.methods) {
+            if ("getPlayerList0".equals(method.name) && "()Ljava/util/Collection;".equals(method.desc)) {
+                method.name = "getPlayerList";
             }
         }
 
@@ -109,6 +128,8 @@ public class ClassTransformer implements IClassTransformer {
 
     private static final String internalNameOfNGTPermissionManagerBukkit
             = "com/anatawa12/pluginPermsForNgt/NGTPermissionManagerBukkit";
+    private static final String nameOfNGTPermissionManagerBukkit
+            = "com.anatawa12.pluginPermsForNgt.NGTPermissionManagerBukkit";
 
     private static class FmlPackageNameFinder {
         private static final String fmlPackage;
