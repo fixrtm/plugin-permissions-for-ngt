@@ -75,7 +75,7 @@ public class ClassTransformer implements IClassTransformer {
         // remove final flag
         node.access = node.access & ~Opcodes.ACC_FINAL;
         for (MethodNode method : node.methods) {
-            if ("getPlayerList0".equals(method.name) && "()Ljava/util/Collection;".equals(method.desc)) {
+            if ("getPlayerList0".equals(method.name) && "(Ljava/lang/String;)Ljava/util/Collection;".equals(method.desc)) {
                 method.name = "getPlayerList";
             }
         }
