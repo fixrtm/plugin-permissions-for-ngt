@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    api("org.apache.httpcomponents:httpclient:4.5.13")
+    api("org.apache.httpcomponents:httpclient:4.5.14")
 }
 
 val buildPlugin by gradlePlugin.plugins.creating {
